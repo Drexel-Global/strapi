@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_plain_text_plain_texts",
+  "info": {
+    "displayName": "plain-text",
+    "icon": "bold"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}

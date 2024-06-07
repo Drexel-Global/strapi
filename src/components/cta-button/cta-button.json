@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_cta_button_cta_buttons",
+  "info": {
+    "displayName": "cta-button"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "contact",
+        "performance"
+      ]
+    },
+    "buttonText": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

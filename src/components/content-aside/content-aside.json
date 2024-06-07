@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_content_aside_content_asides",
+  "info": {
+    "displayName": "content-aside",
+    "icon": "layout",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "blocks",
+      "required": true
+    },
+    "media": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "isFlipped": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

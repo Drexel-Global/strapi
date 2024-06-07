@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_article_hero_article_heroes",
+  "info": {
+    "displayName": "article-hero",
+    "icon": "layout"
+  },
+  "options": {},
+  "attributes": {
+    "imageSource": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
