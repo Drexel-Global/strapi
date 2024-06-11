@@ -860,6 +860,24 @@ export interface ApiBlogArticleBlogArticle extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    publishDate: Attribute.Date &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    alt: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    keywords: Attribute.Relation<
+      'api::blog-article.blog-article',
+      'manyToMany',
+      'api::keyword.keyword'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -919,6 +937,42 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiKeywordKeyword extends Schema.CollectionType {
+  collectionName: 'keywords';
+  info: {
+    singularName: 'keyword';
+    pluralName: 'keywords';
+    displayName: 'keyword';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    blog_articles: Attribute.Relation<
+      'api::keyword.keyword',
+      'manyToMany',
+      'api::blog-article.blog-article'
+    >;
+    keywordList: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::keyword.keyword',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::keyword.keyword',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -939,6 +993,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::blog-article.blog-article': ApiBlogArticleBlogArticle;
       'api::category.category': ApiCategoryCategory;
+      'api::keyword.keyword': ApiKeywordKeyword;
     }
   }
 }
